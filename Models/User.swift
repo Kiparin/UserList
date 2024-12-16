@@ -14,21 +14,17 @@ struct User {
 	let address: String
 	
 	var fullName: String {
-		get {
-			"\(name) \(surname)"
-		}
+		"\(name) \(surname)"
 	}
 	
 	var ageDescription: String {
-		get {
-			"\(age) years old"
-		}
+		"\(age) years old"
 	}
 	
 	static func getUsers() -> [User] {
 		var users: [User] = []
 		
-		for _ in 0..<14 {
+		for _ in 0..<Int.random(in: 1...50) {
 			users.append(User.getUser())
 		}
 		return users

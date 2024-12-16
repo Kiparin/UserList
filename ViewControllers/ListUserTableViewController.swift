@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ListUserTableViewController: UITableViewController {
+final class ListUserTableViewController: UITableViewController {
 
 	var users: [User]!
 	

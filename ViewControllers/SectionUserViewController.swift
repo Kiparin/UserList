@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SectionUserViewController: UITableViewController {
+final class SectionUserViewController: UITableViewController {
 	
 	var users: [User]!
 	
@@ -20,43 +20,41 @@ class SectionUserViewController: UITableViewController {
 extension SectionUserViewController {
 	
     override func numberOfSections(in tableView: UITableView) -> Int {
-		return users.count
+		users.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 2
+		2
     }
 	
 	override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-		return 20
+		20
 	}
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let user = users?[indexPath.section]
+		let cell = tableView.dequeueReusableCell(withIdentifier: "phoneCell", for: indexPath)
+		var content = cell.defaultContentConfiguration()
+		
 		if(indexPath.row == 0) {
-			let phoneCell = tableView.dequeueReusableCell(withIdentifier: "phoneCell", for: indexPath)
-			var phoneContent = phoneCell.defaultContentConfiguration()
-			phoneContent.text = user?.phone ?? ""
-			phoneContent.image = UIImage(systemName: "phone")
-			phoneCell.contentConfiguration = phoneContent
-			return phoneCell
+			content.text = user?.phone ?? ""
+			content.image = UIImage(systemName: "phone")
 		}
 		else {
-			let emailCell = tableView.dequeueReusableCell(withIdentifier: "emailCell", for: indexPath)
-			var emailContent = emailCell.defaultContentConfiguration()
-			emailContent.text = user?.email ?? ""
-			emailContent.image = UIImage(systemName: "envelope")
-			emailCell.contentConfiguration = emailContent
-			return emailCell
+			content.text = user?.email ?? ""
+			content.image = UIImage(systemName: "envelope")
 		}
+		
+		cell.contentConfiguration = content
+		return cell
     }
 	
 	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-		return users?[section].fullName
+		users?[section].fullName
 	}
 	
 	override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-		return nil
+		nil
 	}
 	
 }

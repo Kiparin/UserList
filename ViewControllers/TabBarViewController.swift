@@ -7,12 +7,12 @@
 
 import UIKit
 
-class TabBarViewController: UITabBarController {
-
-	let users = User.getUsers()
+final class TabBarViewController: UITabBarController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
+		
+		let users = User.getUsers()
 		
 		if let basePersonVC = viewControllers?.first as? UINavigationController	 {
 			let listUserVC = basePersonVC.viewControllers.first as? ListUserTableViewController

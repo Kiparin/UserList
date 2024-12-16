@@ -6,7 +6,7 @@
 //
 import UIKit
 
-class CustomUserTableViewController: UITableViewController {
+final class CustomUserTableViewController: UITableViewController {
 	
 	var users: [User]!
 	

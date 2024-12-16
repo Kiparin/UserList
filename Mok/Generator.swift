@@ -5,8 +5,8 @@
 //  Created by Alexey Kiparin on 13.12.2024.
 //
 
-class Generator {
-	private static var names: [String] = [
+final class Generator {
+	private static let names: [String] = [
 		"Roman",
 		"Alexey",
 		"Vladimir",
@@ -24,7 +24,7 @@ class Generator {
 		"Nikolay",
 		"Sergei",
 	]
-	private static var surnames: [String] = [
+	private static let surnames: [String] = [
 		"Petrov",
 		"Sidoriv",
 		"Popov",
@@ -79,29 +79,25 @@ class Generator {
 		"avia",
 		"her",
 		"blob",
-		"blob2",
-		"blob3",
-		"blob4",
-		"blob5",
+		"blobsw",
+		"bloer",
+		"bloqw",
+		"blobfc",
 		
 	]
 	static func randomName() -> String {
-		let name = names.randomElement() ?? "Error"
-		names.removeAll { $0 == name }
-		return name
+		names.randomElement() ?? "Error"
 	}
 	
 	static func randomSurname() -> String {
-		let surname = surnames.randomElement() ?? "Error"
-		surnames.removeAll { $0 == surname }
-		return surname
+		surnames.randomElement() ?? "Error"
 	}
 	
 	static func randomPhoneNumber() -> String {
-		return "+7(\(Int.random(in: 100...999)))\(Int.random(in: 100...999))\(Int.random(in: 1000...9999))"
+		 "+7(\(Int.random(in: 100...999)))\(Int.random(in: 100...999))\(Int.random(in: 1000...9999))"
 	}
 	
 	public static func randomEmail() -> String {
-		return "\(emailWords.randomElement() ?? " ")\(emailWords.randomElement() ?? " ")\(email.randomElement() ?? " ")"
+		 "\(emailWords.randomElement() ?? " ")\(emailWords.randomElement() ?? " ")\(email.randomElement() ?? " ")"
 	}
 }

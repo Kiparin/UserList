@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UserDetailViewController: UIViewController {
+final class UserDetailViewController: UIViewController {
 
 	@IBOutlet weak var fullName: UILabel!
 	@IBOutlet weak var surName: UILabel!
@@ -26,6 +26,7 @@ class UserDetailViewController: UIViewController {
     }
 	
 	private func setData() {
+		title = user?.fullName ?? "Test"
 		fullName.text = user?.fullName ?? "Test"
 		surName.text = user?.surname ?? "Test"
 		name.text = user?.name ?? "Test"
